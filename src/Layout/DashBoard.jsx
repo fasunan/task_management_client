@@ -18,7 +18,7 @@ const Dashboard = () => {
             <NavLink to="/dashboard/PreviousTask">Previous Task</NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <NavLink to="/dashboard/todoList">To-Do List</NavLink>
           </li>
           <li>
@@ -26,9 +26,9 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink to="/dashboard/completedList">Completed List</NavLink>
-          </li>
+          </li> */}
           <li>
-            <NavLink to="/dashboard/salesSummary">List Of Task</NavLink>
+            <NavLink to="/dashboard/taskManagement">Task Management</NavLink>
           </li>
 
           {/* shared nav links */}

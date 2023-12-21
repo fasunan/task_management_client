@@ -1,15 +1,19 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
-const CreateTask = () => {
+const UpdateTask = () => {
+  const updateTask = useLoaderData();
+  const { taskTitle, deadline, priority, description } = updateTask;
+
   const axiosPublic = useAxiosPublic();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
     axiosPublic
-      .post("/tasks", data) // Use the form data instead of taskInfo
+      .put("/tasks", data) // Use the form data instead of taskInfo
       .then((res) => {
         if (res.data.insertedId) {
           console.log("task added to the database");
@@ -49,6 +53,7 @@ const CreateTask = () => {
                 </h2>
                 <input
                   {...register("taskTitle")}
+                  defaultValue={taskTitle}
                   type="text"
                   name="taskTitle"
                   placeholder="Task Title"
@@ -62,6 +67,7 @@ const CreateTask = () => {
                 </h2>
                 <input
                   {...register("description")}
+                  defaultValue={description}
                   type="text"
                   name="description"
                   required
@@ -76,6 +82,7 @@ const CreateTask = () => {
                 </h2>
                 <input
                   {...register("deadline")}
+                  defaultValue={deadline}
                   type="date"
                   name="deadline"
                   placeholder="Task Deadline"
@@ -88,6 +95,7 @@ const CreateTask = () => {
                 </h2>
                 <select
                   {...register("priority")}
+                  defaultValue={priority}
                   className="select select-accent w-full max-w-xs"
                 >
                   <option disabled defaultValue="">
@@ -112,4 +120,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default UpdateTask;
