@@ -23,7 +23,7 @@ const NavBar = () => {
           <li>
             <Link to="/dashboard">
               <button className="btn btn-sm">
-                <div className="badge badge-info">Your Task</div>
+                <div className="">Your Task</div>
               </button>
             </Link>
           </li>
@@ -86,11 +86,11 @@ const NavBar = () => {
             </ul>
           </div>
           <img
-            className="w-24 rounded-md"
-            src="https://i.ibb.co/cvPNXkT/Logo.jpg"
+            className="w-12 rounded-md"
+            src="https://i.ibb.co/F78Kw2q/checklist-7083603.png"
             alt=""
           />
-          <a className="btn btn-ghost normal-case text-xl">Fashion Store</a>
+          <a className="btn btn-ghost normal-case text-xl">TaskCraft</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
