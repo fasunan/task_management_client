@@ -24,8 +24,8 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="mt-36">
-      <div className="text-center ml-32 mr-32 mt-20 mb-16">
+    <div className="mt-12">
+      <div className="text-center ml-32 mr-32 mb-12">
         <h2
           className=" text-4xl font-bold mb-7 bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent"
           data-aos="flip-up"
@@ -42,7 +42,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div>
-        <div className="hero min-h-screen  relative mt-10">
+        <div className="hero min-h-screen  relative">
           <div
             className="hero-content flex-col lg:flex-row bg-sky-600 opacity-75"
             data-aos="zoom-in"
@@ -78,7 +78,7 @@ const AboutUs = () => {
 
               {/* Open the modal using document.getElementById('ID').showModal() method */}
               <button
-                className="btn hover:bg-red-500"
+                className="btn bg-sky-700 text-white rounded-sm hover:bg-red-500 skeleton"
                 onClick={() =>
                   document.getElementById("my_modal_5").showModal()
                 }

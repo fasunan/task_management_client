@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
+import { MdSpaceDashboard } from "react-icons/md";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,34 +14,30 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="hover:text-red-600" to="/">
+          Home
+        </Link>
       </li>
-      {/* <li>
-        <Link to="/createShop">Create Shop</Link>
-      </li> */}
+
       {user ? (
         <>
           <li>
-            <Link to="/dashboard">
-              <button className="btn btn-sm">
-                <div className="">Your Task</div>
-              </button>
+            <Link className="hover:text-red-600" to="/dashboard/taskManagement">
+              <MdSpaceDashboard></MdSpaceDashboard>Your Task
             </Link>
           </li>
           <div className="flex gap-4 mr-4">
-            <span className=" font-semibold text-base mt-2 text-cyan-400">
-              {user?.displayName}
-            </span>
+            <span className=" mt-2 text-cyan-400">{user?.displayName}</span>
 
-            <span>
+            {/* <span>
               <div className="avatar">
-                <div className="w-10 rounded-full ring ring-cyan-400 ">
+                <div className="w-8 rounded-full ring ring-red-400 ">
                   <img src={user?.photoURL} />
                 </div>
               </div>
-            </span>
+            </span> */}
           </div>
-          <button onClick={handleLogOut} className="btn btn-ghost">
+          <button onClick={handleLogOut} className="hover:text-red-600">
             LogOut
           </button>
         </>

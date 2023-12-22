@@ -2,8 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { FaHome, FaTasks } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
 import { NavLink, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProviders/AuthProviders";
 
 const Dashboard = () => {
+  const { user, login } = useContext(AuthContext);
   return (
     <div className="flex">
       <Helmet>
@@ -11,6 +14,17 @@ const Dashboard = () => {
       </Helmet>
 
       <div className="w-64 min-h-screen bg-indigo-700 text-lg font-semibold text-red-400">
+        <div className="m-8">
+          <div className="avatar">
+            <div className="w-12 rounded-full ring ring-red-400 ">
+              <img src={user?.photoURL} />
+            </div>
+          </div>
+
+          <p className=" font-semibold text-base mt-2 text-cyan-400">
+            {user?.displayName}
+          </p>
+        </div>
         <ul className="menu p-4">
           <li>
             <NavLink to="/dashboard/CreateTask">
