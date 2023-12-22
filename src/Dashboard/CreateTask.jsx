@@ -34,7 +34,7 @@ const CreateTask = () => {
   return (
     <div className="">
       <div className="m-10 ">
-        <h1 className="text-3xl font-bold text-center">
+        <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
           Create Your Task List <br /> For Easer to Remember
         </h1>
       </div>
@@ -44,7 +44,7 @@ const CreateTask = () => {
             {/*row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pl-10">
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-400 mb-2">
                   Task Title
                 </h2>
                 <input
@@ -52,12 +52,12 @@ const CreateTask = () => {
                   type="text"
                   name="taskTitle"
                   placeholder="Task Title"
-                  className="input input-bordered input-primary w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                 />
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-400 mb-2">
                   Short Description
                 </h2>
                 <input
@@ -66,12 +66,12 @@ const CreateTask = () => {
                   name="description"
                   required
                   placeholder="Short description"
-                  className="input input-bordered input-primary w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                 />
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-400 mb-2">
                   Task Deadline
                 </h2>
                 <input
@@ -79,16 +79,16 @@ const CreateTask = () => {
                   type="date"
                   name="deadline"
                   placeholder="Task Deadline"
-                  className="input input-bordered input-primary w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                 />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-400 mb-2">
                   Task Priority
                 </h2>
                 <select
                   {...register("priority")}
-                  className="select select-accent w-full max-w-xs"
+                  className="select select-error w-full max-w-xs"
                 >
                   <option disabled defaultValue="">
                     Task Priority
@@ -102,7 +102,7 @@ const CreateTask = () => {
               <input
                 type="submit"
                 value="Create Task"
-                className="btn mt-6 w-60  bg-indigo-200 text-sky-700"
+                className="btn mt-6 w-60  bg-sky-400 hover:bg-red-500 font-semibold text-white"
               />
             </div>
           </form>

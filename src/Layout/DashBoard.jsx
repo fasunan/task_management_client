@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaTasks } from "react-icons/fa";
+import { BiTask } from "react-icons/bi";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
@@ -9,26 +10,20 @@ const Dashboard = () => {
         <title>TaskCraft || Dashboard</title>
       </Helmet>
 
-      <div className="w-64 min-h-screen bg-[#4796BD] mt-5">
+      <div className="w-64 min-h-screen bg-indigo-700 text-lg font-semibold text-red-400">
         <ul className="menu p-4">
           <li>
-            <NavLink to="/dashboard/CreateTask">Create New Task</NavLink>
+            <NavLink to="/dashboard/CreateTask">
+              <BiTask></BiTask> Create New Task
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard/PreviousTask">Previous Task</NavLink>
-          </li>
-
           {/* <li>
-            <NavLink to="/dashboard/todoList">To-Do List</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/ongoingList">Ongoing List</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/completedList">Completed List</NavLink>
+            <NavLink to="/dashboard/PreviousTask">Previous Task</NavLink>
           </li> */}
           <li>
-            <NavLink to="/dashboard/taskManagement">Task Management</NavLink>
+            <NavLink to="/dashboard/taskManagement">
+              <FaTasks></FaTasks> Task Management
+            </NavLink>
           </li>
 
           {/* shared nav links */}

@@ -13,15 +13,14 @@ const UpdateTask = () => {
   const onSubmit = (data) => {
     console.log(data);
     axiosPublic
-      .put("/tasks", data) // Use the form data instead of taskInfo
+      .patch(`/updateTask/${updateTask._id}`, data)
       .then((res) => {
         if (res.data.insertedId) {
-          console.log("task added to the database");
-          reset(); // Reset the form
+          reset();
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "task created successfully.",
+            title: "task updated successfully.",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -38,8 +37,8 @@ const UpdateTask = () => {
   return (
     <div className="">
       <div className="m-10 ">
-        <h1 className="text-3xl font-bold text-center">
-          Create Your Task List <br /> For Easer to Remember
+        <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+          Update Your Task
         </h1>
       </div>
       <div>
@@ -48,7 +47,7 @@ const UpdateTask = () => {
             {/*row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pl-10">
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-700 mb-2">
                   Task Title
                 </h2>
                 <input
@@ -62,7 +61,7 @@ const UpdateTask = () => {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-700 mb-2">
                   Short Description
                 </h2>
                 <input
@@ -77,7 +76,7 @@ const UpdateTask = () => {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-700 mb-2">
                   Task Deadline
                 </h2>
                 <input
@@ -90,13 +89,13 @@ const UpdateTask = () => {
                 />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">
+                <h2 className="text-xl font-bold text-sky-700 mb-2">
                   Task Priority
                 </h2>
                 <select
                   {...register("priority")}
                   defaultValue={priority}
-                  className="select select-accent w-full max-w-xs"
+                  className="select select-primary w-full max-w-xs"
                 >
                   <option disabled defaultValue="">
                     Task Priority
@@ -109,8 +108,8 @@ const UpdateTask = () => {
 
               <input
                 type="submit"
-                value="Create Task"
-                className="btn mt-6 w-60  bg-indigo-200 text-sky-700"
+                value="Update Task"
+                className="btn mt-6 w-40 bg-sky-700 hover:bg-red-500 text-white font-semibold"
               />
             </div>
           </form>
