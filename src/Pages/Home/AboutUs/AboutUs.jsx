@@ -98,8 +98,8 @@ const AboutUs = () => {
                   </form>
                   <div className="text-blue-500">
                     <div className="text-center">
-                      <h2 className="text-4xl font-bold text-orange-500 mb-4">
-                        Send me a Message!
+                      <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-4">
+                        Send us your Query!
                       </h2>
                     </div>
                     <div>
@@ -110,7 +110,7 @@ const AboutUs = () => {
                               <div className="flex justify-between gap-3">
                                 <div className="form-control">
                                   <label className="label">
-                                    <span className="label-text text-orange-500">
+                                    <span className="label-text text-purple-500">
                                       Your Name
                                     </span>
                                   </label>
@@ -124,7 +124,7 @@ const AboutUs = () => {
                                 </div>
                                 <div className="form-control flex flex-col">
                                   <label className="label">
-                                    <span className="label-text text-orange-500">
+                                    <span className="label-text text-purple-500">
                                       Your Email
                                     </span>
                                   </label>
@@ -139,7 +139,7 @@ const AboutUs = () => {
                               </div>
                               <div className="form-control">
                                 <label className="label">
-                                  <span className="label-text text-orange-500">
+                                  <span className="label-text text-purple-500">
                                     Your Message
                                   </span>
                                 </label>

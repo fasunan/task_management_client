@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateTask = () => {
+  const navigate = useNavigate();
   const updateTask = useLoaderData();
   const { taskTitle, deadline, priority, description } = updateTask;
 
@@ -17,6 +18,7 @@ const UpdateTask = () => {
       .then((res) => {
         if (res.data.insertedId) {
           reset();
+          navigate(location?.state ? location.state : "/taskManagement");
           Swal.fire({
             position: "top-end",
             icon: "success",

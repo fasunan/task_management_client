@@ -1,15 +1,21 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const CreateTask = () => {
   const axiosPublic = useAxiosPublic();
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const userData = {
+      ...data,
+      userEmail: user.email, // Replace with the user's email or ID
+    };
+
     axiosPublic
-      .post("/tasks", data) // Use the form data instead of taskInfo
+      .post("/tasks", userData) // Use the form data instead of taskInfo
       .then((res) => {
         if (res.data.insertedId) {
           console.log("task added to the database");

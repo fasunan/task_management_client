@@ -1,9 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const TaskManagement = () => {
   const taskData = useLoaderData();
-  console.log(taskData);
+  const { user } = useAuth();
+
+  const userTasks = taskData.filter((task) => task.userEmail === user.email);
+  console.log(userTasks);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -56,7 +61,7 @@ const TaskManagement = () => {
                 </tr>
               </thead>
               <tbody className="hover:shadow-lg">
-                {taskData.map((task, index) => (
+                {userTasks.map((task, index) => (
                   <tr
                     key={task._id}
                     className="hover:shadow-lg hover:bg-red-200"
