@@ -15,7 +15,7 @@ const TaskManagement = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tasks/${id}`, {
+        fetch(`https://job-taskcraft-server.vercel.app/tasks/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -38,7 +38,7 @@ const TaskManagement = () => {
   return (
     <div>
       {/* todo */}
-      <div className="card bg-base-100 shadow-xl mt-10">
+      <div className="card bg-base-100 shadow-xl ">
         <div className="card-body">
           <h2 className="card-title font-bold text-2xl flex items-center justify-center bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
             To-Do List

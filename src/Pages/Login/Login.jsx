@@ -1,11 +1,10 @@
-
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -29,14 +28,14 @@ const Login = () => {
         console.log(result.user);
         navigate(location?.state ? location.state : "/");
         setSuccess("");
-        
+
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: " User Login successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          position: "center",
+          icon: "success",
+          title: " User Login successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         return;
       })
       .catch((error) => {
@@ -59,17 +58,26 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="text-black p-16" >
+    <div className="text-black p-16">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left mb-5">
-           
-            <img data-aos="flip-right" data-aos-duration="1000" src="https://i.ibb.co/jJLNRVh/login-2.jpg" alt="" />
-
+            <img
+              data-aos="flip-right"
+              data-aos-duration="1000"
+              src="https://i.ibb.co/jJLNRVh/login-2.jpg"
+              alt=""
+            />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="zoom-in" data-aos-duration="1000">
+          <div
+            className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+          >
             <div className="card-body">
-            <h1 className="text-4xl text-rose-500 font-bold text-center mb-10">Login!!</h1>
+              <h1 className="text-4xl text-rose-500 font-bold text-center mb-10">
+                Login!!
+              </h1>
               <form onSubmit={handleLogIn}>
                 <div className="form-control">
                   <label className="label">
@@ -102,15 +110,15 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary  text-red-500 text-2xl font-serif rounded bg-gradient-to-r from-sky-900 via-indigo-900 to-purple-900 ">
-                    Login
+                  <button className=" rounded-sm text-red hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-pink-600 bg-red-500 px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-sky-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full">
+                    <span className="relative font-medium z-10"> Log In</span>
                   </button>
                 </div>
               </form>
 
               {logError && <p>{logError}</p>}
               {success && <p>{success}</p>}
-              
+
               <p className="text-pink-600">Or you can log in with </p>
               <div className="gap-4 font-serif flex text-base">
                 <button onClick={handleGoogleLogIn} className="btn w-full">

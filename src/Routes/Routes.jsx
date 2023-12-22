@@ -45,13 +45,13 @@ export const router = createBrowserRouter([
       {
         path: "taskManagement",
         element: <TaskManagement></TaskManagement>,
-        loader: () => fetch(`http://localhost:5000/tasks/`),
+        loader: () => fetch(`https://job-taskcraft-server.vercel.app/tasks/`),
       },
       {
         path: "updateTask/:id",
         element: <UpdateTask></UpdateTask>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(`https://job-taskcraft-server.vercel.app/tasks/${params.id}`),
       },
     ],
   },

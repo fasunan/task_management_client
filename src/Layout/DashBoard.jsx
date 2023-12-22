@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProviders/AuthProviders";
 
 const Dashboard = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <div className="flex">
       <Helmet>

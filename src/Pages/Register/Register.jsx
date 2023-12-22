@@ -1,10 +1,9 @@
-
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { getAuth, updateProfile } from "firebase/auth";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import SocialLogin from "../Login/SocialLogin";
@@ -38,7 +37,7 @@ const Register = () => {
         icon: "success",
         title: "Password must be 6 character",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
       return;
     } else if (!/[A-Z]/.test(password)) {
@@ -48,7 +47,7 @@ const Register = () => {
         icon: "success",
         title: "Password must contain at least one uppercase letter",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
       return;
     } else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
@@ -58,28 +57,26 @@ const Register = () => {
         icon: "success",
         title: "Password must contain at least one special character",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
       return;
     }
 
     registerUser(email, password)
       .then((result) => {
-        
-        const user={email, name}
+        const user = { email, name };
 
-        fetch('http://localhost:5000/user', {
-          method: 'POST',
-          headers:{
-            'content-type' : 'application/json'
+        fetch("https://job-taskcraft-server.vercel.app/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-          body: JSON.stringify(user)
+          body: JSON.stringify(user),
         })
-        .then(res=>res.json())
-            .then(data=>{
-              console.log(data)
-            })
-        
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
 
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -93,14 +90,12 @@ const Register = () => {
         navigate(location?.state ? location.state : "/");
         setSuccess();
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Account created successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
-
-        
+          position: "center",
+          icon: "success",
+          title: "Account created successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -114,17 +109,23 @@ const Register = () => {
     <div className="text-black bg-white-400 p-16 ">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center lg:text-left mb-5" data-aos="flip-right" data-aos-duration="1000">
-            
+          <div
+            className="text-center lg:text-left mb-5"
+            data-aos="flip-right"
+            data-aos-duration="1000"
+          >
             <img src="https://i.ibb.co/JHfYqS7/login-3.jpg" alt="" />
-            
           </div>
 
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos-duration="1000" data-aos="zoom-in">
+          <div
+            className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+            data-aos-duration="1000"
+            data-aos="zoom-in"
+          >
             <div className="card-body">
-            <h1 className="text-4xl text-blue-500 font-bold text-center ">
-             Please Register!!
-            </h1>
+              <h1 className="text-4xl text-blue-500 font-bold text-center ">
+                Please Register!!
+              </h1>
               <form onSubmit={handleCreateAccount}>
                 <div className="form-control">
                   <label className="label">
@@ -181,21 +182,21 @@ const Register = () => {
                   </span>
                 </div>
                 <div className="form-control mt-6">
-                  <button className=" btn btn-primary text-red-400 text-2xl font-serif rounded bg-gradient-to-r from-sky-900 via-indigo-900 to-purple-900">
-                    Sign Up
+                  <button className=" rounded-sm text-red hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-purple-500 bg-sky-600 px-3 text-white shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-red-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full">
+                    <span className="relative font-medium z-10"> Sign Up</span>
                   </button>
                 </div>
                 <div>
                   <SocialLogin></SocialLogin>
                 </div>
                 <p className="text-slate-800 font-medium">
-              Already Have an Account? please
-              <Link to={"/login"}>
-                <button className="btn btn-link">Login</button>
-              </Link>
-            </p>
+                  Already Have an Account? please
+                  <Link to={"/login"}>
+                    <button className="btn btn-link">Login</button>
+                  </Link>
+                </p>
               </form>
-             
+
               {error && <p>{error}</p>}
               {success && <p>{success}</p>}
             </div>
@@ -207,4 +208,3 @@ const Register = () => {
 };
 
 export default Register;
-
